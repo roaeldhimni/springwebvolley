@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import FiliereList from './FiliereList';
+import FiliereUpdate from './FiliereUpdate';
+import FiliereForm from './FiliereForm';
+import RoleForm from './RoleForm';
+import RoleList from './RoleList';
+import RoleUpdate from './RoleUpdate';
+import StudentList from './StudentList';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/filiere" element={<FiliereList />} />
+          <Route path="/updateFiliere/:id" element={<FiliereUpdate />} />
+          <Route path="/createFiliere" element={<FiliereForm />} />
+
+
+          <Route path="/role" element={<RoleList />} />
+          <Route path="/createRole" element={<RoleForm />} />
+          <Route path="/updateRole/:id" element={<RoleUpdate />} />
+
+
+          <Route path="/students" element={<StudentList />} />
+
+        </Routes>
+
+
+      </BrowserRouter>
     </div>
   );
 }
